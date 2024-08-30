@@ -31,6 +31,5 @@ In Postman, you can dynamically update the IP address used in your requests by u
 
    Example:
    ```javascript
-   const ipAddresses = ["192.168.1.1", "8.8.8.8", "8.8.4.4"];
-   const selectedIp = ipAddresses[Math.floor(Math.random() * ipAddresses.length)];
-   pm.environment.set("ip", selectedIp);
+   const ipAddresses = [ "8.8.4.4"];
+   pm.environment.set("ip", ipAddresses);
