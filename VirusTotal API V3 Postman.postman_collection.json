@@ -20,7 +20,7 @@
 							"];\r",
 							"\r",
 							"// Select an IP address dynamically (e.g., random selection)\r",
-							"//const selectedIp = ipAddresses[Math.floor(Math.random() * ipAddresses.length)];\r",
+							"// Just for Fun -- const selectedIp = ipAddresses[Math.floor(Math.random() * ipAddresses.length)];\r",
 							"\r",
 							"// Set the selected IP address as an environment variable\r",
 							"pm.environment.set(\"ip\", ipAddresses);"
