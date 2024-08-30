@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "a158033f-c738-47bf-8370-2cc5f874d333",
+		"name": "VirusTotal API V3 Postman",
+		"description": "In Postman, you can dynamically update the IP address used in your requests by utilizing a **Pre-request Script**. This script allows you to set an IP address as an environment variable before each request is sent. For example, you can maintain a list of IP addresses and use JavaScript logic to select one (e.g., randomly or in sequence) and assign it to an environment variable like `ip`. By using `{{ip}}` as a placeholder in your request URL, Postman will automatically substitute it with the dynamically selected IP address. This method enhances flexibility and automation in testing scenarios where multiple IP addresses need to be queried.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38031186"
+	},
+	"item": [
+		{
+			"name": "an IP address report",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Example list of IP addresse! Only One IP\r",
+							"const ipAddresses = [\r",
+							"    \"8.8.8.8\"\r",
+							"];\r",
+							"\r",
+							"// Select an IP address dynamically (e.g., random selection)\r",
+							"//const selectedIp = ipAddresses[Math.floor(Math.random() * ipAddresses.length)];\r",
+							"\r",
+							"// Set the selected IP address as an environment variable\r",
+							"pm.environment.set(\"ip\", ipAddresses);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Apikey",
+						"value": "Update Me!",
+						"description": "Update this Key Value to your VT API Key!",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.virustotal.com/api/v3/ip_addresses/{{ip}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"virustotal",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"ip_addresses",
+						"{{ip}}"
+					]
+				},
+				"description": "1. **Add the API Key Header:**\n    \n    - Go to the \"Headers\" tab in your request.\n        \n    - Add a new header with the key `X-Apikey` and the value `{{apikey}}`.\n        \n2. **Set Up a Pre-request Script:**\n    \n    - Click on the \"Pre-request Script\" tab in your request.\n        \n    - Change your IP address in place of placeholder or you can directly remove the {{ip}} variable as well."
+			},
+			"response": []
+		}
+	]
+}
